@@ -9,12 +9,16 @@ The environment demonstrates core UVM concepts such as sequences, driver, monito
 ---
 
 ## 📁 Repository Structure
-├── README.md # Project documentation
-├── simple_mem.sv # Memory RTL
-├── testbench.sv # UVM testbench (tb_top + UVM environment)
-├── output_log.txt # Simulation log output
-└── images/
-└── waveform.png # Simulation waveform snapshot
+
+```text
+.
+├── README.md
+├── simple_mem.sv
+├── testbench.sv
+├── output_log.txt
+└── images
+    └── waveform.png
+```
 
 
 ---
