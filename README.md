@@ -1,2 +1,5 @@
 # UVM_memory_model
-SImple UVM TB Memory Model
+Simple UVM TB Memory Model
+
+<img src="images/waveform.png" width="900">
+
