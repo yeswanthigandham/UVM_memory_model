@@ -121,11 +121,17 @@ class monitor extends uvm_monitor;
     forever begin
       seq_item1=seq_item::type_id::create("seq_item1",this);
         @(posedge vif.clk);
+      if(vif.wren) begin
       seq_item1.datain = vif.datain;
       seq_item1.addr = vif.addr;
-      seq_item1.rden = vif.rden;
       seq_item1.wren = vif.wren;
-      
+      end
+      else if (vif.rden) begin
+      seq_item1.addr = vif.addr;
+      seq_item1.rden = vif.rden; 
+        @(posedge vif.clk);
+      seq_item1.dataout = vif.dataout; 
+      end
       a_port.write(seq_item1);
       
     end
@@ -189,11 +195,20 @@ class scoreboard extends uvm_scoreboard;
   virtual function void write(seq_item seq_item1);
     if(seq_item1.wren) begin
       ref_mem[seq_item1.addr]=seq_item1.datain;
+      `uvm_info(get_type_name(),$sformatf(" addr=%0d  data=%0h\n",seq_item1.addr,seq_item1.datain),UVM_LOW);
       
     end
     else if(seq_item1.rden) begin
+      
       if(seq_item1.dataout !== ref_mem[seq_item1.addr])
-        `uvm_error(get_type_name(),"mismatch in read data\n");
+           begin
+             
+             `uvm_info(get_type_name(),$sformatf("mismatch in read data addr=%0d EXP=%0h and ACT=%0h \n",seq_item1.addr,ref_mem[seq_item1.addr],seq_item1.dataout),UVM_LOW);
+             `uvm_error(get_type_name(),"mismatch in read data \n");
+           end
+      else begin
+        `uvm_info(get_type_name(),$sformatf("MATCH in read data addr=%0d EXP=%0h and ACT=%0h \n",seq_item1.addr,ref_mem[seq_item1.addr],seq_item1.dataout),UVM_LOW);        
+      end
     end
     
     
@@ -315,7 +330,7 @@ module tb_top;
   end
   
 initial begin
-  #100;
+  #1000;
   $finish;
 end
   
