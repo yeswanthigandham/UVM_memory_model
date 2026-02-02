@@ -64,7 +64,7 @@ The testbench follows a **standard active-agent UVM architecture**:
 
 Below is a waveform snippet captured during simulation, showing clocked read/write transactions:
 
-<img src="images/waveform.png" width="900">
+<img src="images/waveform_simple_memory.png" width="900">
 
 ### Signals shown:
 - `clk`
