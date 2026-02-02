@@ -1,17 +1,17 @@
-[2026-01-30 02:54:16 UTC] vlib work && vlog '-timescale' '1ns/1ns' +incdir+$RIVIERA_HOME/vlib/uvm-1.2/src -l uvm_1_2 -err VCP2947 W9 -err VCP2974 W9 -err VCP3003 W9 -err VCP5417 W9 -err VCP6120 W9 -err VCP7862 W9 -err VCP2129 W9 design.sv testbench.sv  && vsim -c -do "vsim +access+r; run -all; exit"  
+[2026-02-02 19:38:51 UTC] vlib work && vlog '-timescale' '1ns/1ns' +incdir+$RIVIERA_HOME/vlib/uvm-1.2/src -l uvm_1_2 -err VCP2947 W9 -err VCP2974 W9 -err VCP3003 W9 -err VCP5417 W9 -err VCP6120 W9 -err VCP7862 W9 -err VCP2129 W9 design.sv testbench.sv  && vsim -c -do "vsim +access+r; run -all; exit"  
 VSIMSA: Configuration file changed: `/home/runner/library.cfg'
 ALIB: Library "work" attached.
-work = /home/runner/work/work.lib
+work = ./work/work.lib
 MESSAGE_SP VCP2124 "Package uvm_pkg found in library uvm_1_2."
 MESSAGE "Unit top modules: tb_top."
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 6[s]."
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 5[s]."
 done
-# Aldec, Inc. Riviera-PRO version 2023.04.112.8911 built for Linux64 on May 12, 2023.
+# Aldec, Inc. Riviera-PRO version 2025.04.139.9738 built for Linux64 on May 30, 2025.
 # HDL, SystemC, and Assertions simulator, debugger, and design environment.
-# (c) 1999-2023 Aldec, Inc. All rights reserved.
+# (c) 1999-2025 Aldec, Inc. All rights reserved.
 # ELBREAD: Elaboration process.
-# ELBREAD: Warning: ELBREAD_0049 Package 'uvm_pkg' does not have a `timescale directive, but previous modules do.
-# ELBREAD: Elaboration time 0.6 [s].
+# ELBREAD: Warning: ELBREAD_0049 The "uvm_pkg" design unit does not have a time unit/precision defined but other design units do.
+# ELBREAD: Elaboration time 0.5 [s].
 # KERNEL: Main thread initiated.
 # KERNEL: Kernel process initialization phase.
 # ELAB2: Elaboration final pass...
@@ -28,15 +28,15 @@ done
 # SLP: Generation phase ... done : 0.1 [s]
 # SLP: Finished : 0.1 [s]
 # SLP: 0 primitives and 5 (41.67%) other processes in SLP
-# SLP: 18 (0.06%) signals in SLP and 19 (0.06%) interface signals
-# ELAB2: Elaboration final pass complete - time: 2.7 [s].
+# SLP: 24 (0.08%) signals in SLP and 14 (0.05%) interface signals
+# ELAB2: Elaboration final pass complete - time: 2.3 [s].
 # KERNEL: SLP loading done - time: 0.0 [s].
 # KERNEL: Warning: You are using the Riviera-PRO EDU Edition. The performance of simulation is reduced.
 # KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
 # KERNEL: SLP simulation initialization done - time: 0.0 [s].
 # KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 29642 kB (elbread=2094 elab2=22640 kernel=4907 sdf=0)
-# KERNEL: UVM_INFO /home/build/vlib1/vlib/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# Allocation: Simulator allocated 29239 kB (elbread=2094 elab2=22389 kernel=4755 sdf=0)
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
 # KERNEL: ----------------------------------------------------------------
 # KERNEL: UVM-1.2
 # KERNEL: (C) 2007-2014 Mentor Graphics Corporation
@@ -62,14 +62,116 @@ done
 # KERNEL: UVM_INFO @ 0: reporter [RNTST] Running test basic_test...
 # KERNEL: UVM_INFO /home/runner/testbench.sv(41) @ 0: uvm_test_top.env1.ag.seqr1@@myseq1 [myseq] Inside sequence body task
 # KERNEL: 
-# KERNEL: UVM_INFO /home/runner/testbench.sv(43) @ 0: uvm_test_top.env1.ag.seqr1@@myseq1 [myseq]  randomised num 42 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(43) @ 0: uvm_test_top.env1.ag.seqr1@@myseq1 [myseq]  randomised num 92 
 # KERNEL: 
-# RUNTIME: Info: RUNTIME_0068 testbench.sv (319): $finish called.
-# KERNEL: Time: 100 ns,  Iteration: 0,  Instance: /tb_top,  Process: @INITIAL#317_4@.
-# KERNEL: stopped at time: 100 ns
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 35000: uvm_test_top.env1.scbd [scoreboard]  addr=14  data=e906c618
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 45000: uvm_test_top.env1.scbd [scoreboard]  addr=1  data=dff406cf
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 55000: uvm_test_top.env1.scbd [scoreboard]  addr=11  data=d3db07c3
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 75000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=12 EXP=0 and ACT=0 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 115000: uvm_test_top.env1.scbd [scoreboard]  addr=0  data=4bc1d27c
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 135000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=7 EXP=0 and ACT=0 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 155000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=10 EXP=0 and ACT=0 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 185000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=14 EXP=e906c618 and ACT=e906c618 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 195000: uvm_test_top.env1.scbd [scoreboard]  addr=2  data=ececee20
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 215000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=13 EXP=0 and ACT=0 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 225000: uvm_test_top.env1.scbd [scoreboard]  addr=8  data=3775fc6c
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 275000: uvm_test_top.env1.scbd [scoreboard]  addr=4  data=cc881904
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 285000: uvm_test_top.env1.scbd [scoreboard]  addr=3  data=7adf5f73
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 305000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=9 EXP=0 and ACT=0 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 345000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=2 EXP=ececee20 and ACT=ececee20 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 355000: uvm_test_top.env1.scbd [scoreboard]  addr=6  data=ea935328
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 375000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=9 EXP=0 and ACT=0 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 395000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=4 EXP=cc881904 and ACT=cc881904 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 415000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=8 EXP=3775fc6c and ACT=3775fc6c 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 445000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=8 EXP=3775fc6c and ACT=3775fc6c 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 455000: uvm_test_top.env1.scbd [scoreboard]  addr=13  data=3feef147
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 465000: uvm_test_top.env1.scbd [scoreboard]  addr=2  data=b7d5bc00
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 515000: uvm_test_top.env1.scbd [scoreboard]  addr=10  data=e1f9f530
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 525000: uvm_test_top.env1.scbd [scoreboard]  addr=5  data=47bb4157
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 535000: uvm_test_top.env1.scbd [scoreboard]  addr=7  data=aa764dbb
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 545000: uvm_test_top.env1.scbd [scoreboard]  addr=0  data=a2b1a5c
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 575000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=4 EXP=cc881904 and ACT=cc881904 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 605000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=12 EXP=0 and ACT=0 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 615000: uvm_test_top.env1.scbd [scoreboard]  addr=1  data=536db96f
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 625000: uvm_test_top.env1.scbd [scoreboard]  addr=14  data=9af087f8
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 665000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=10 EXP=e1f9f530 and ACT=e1f9f530 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 675000: uvm_test_top.env1.scbd [scoreboard]  addr=14  data=d320d438
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 695000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=1 EXP=536db96f and ACT=536db96f 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 705000: uvm_test_top.env1.scbd [scoreboard]  addr=12  data=6a2604d4
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 755000: uvm_test_top.env1.scbd [scoreboard]  addr=0  data=295c5a9c
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 765000: uvm_test_top.env1.scbd [scoreboard]  addr=7  data=4687ac7b
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 775000: uvm_test_top.env1.scbd [scoreboard]  addr=5  data=60acbe97
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 785000: uvm_test_top.env1.scbd [scoreboard]  addr=10  data=77cb90f0
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 815000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=6 EXP=ea935328 and ACT=ea935328 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(198) @ 835000: uvm_test_top.env1.scbd [scoreboard]  addr=2  data=be07f040
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 855000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=13 EXP=3feef147 and ACT=3feef147 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 875000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=8 EXP=3775fc6c and ACT=3775fc6c 
+# KERNEL: 
+# KERNEL: UVM_INFO /home/runner/testbench.sv(210) @ 895000: uvm_test_top.env1.scbd [scoreboard] MATCH in read data addr=12 EXP=6a2604d4 and ACT=6a2604d4 
+# KERNEL: 
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_objection.svh(1271) @ 915000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# KERNEL: UVM_INFO ./uvm-1.2/src/base/uvm_report_server.svh(869) @ 915000: reporter [UVM/REPORT/SERVER] 
+# KERNEL: --- UVM Report Summary ---
+# KERNEL: 
+# KERNEL: ** Report counts by severity
+# KERNEL: UVM_INFO :   48
+# KERNEL: UVM_WARNING :    0
+# KERNEL: UVM_ERROR :    0
+# KERNEL: UVM_FATAL :    0
+# KERNEL: ** Report counts by id
+# KERNEL: [RNTST]     1
+# KERNEL: [TEST_DONE]     1
+# KERNEL: [UVM/RELNOTES]     1
+# KERNEL: [myseq]     2
+# KERNEL: [scoreboard]    43
+# KERNEL: 
+# RUNTIME: Info: RUNTIME_0068 uvm_root.svh (521): $finish called.
+# KERNEL: Time: 915 ns,  Iteration: 63,  Instance: /tb_top,  Process: @INITIAL#315_2@.
+# KERNEL: stopped at time: 915 ns
 # VSIM: Simulation has finished. There are no more test vectors to simulate.
 # VSIM: Simulation has finished.
 Finding VCD file...
 ./dump.vcd
-[2026-01-30 02:54:29 UTC] Opening EPWave...
+[2026-02-02 19:39:03 UTC] Opening EPWave...
 Done
